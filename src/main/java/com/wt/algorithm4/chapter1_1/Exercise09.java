@@ -2,7 +2,7 @@ package com.wt.algorithm4.chapter1_1;
 
 import java.util.Scanner;
 
-public class Exercise9 {
+public class Exercise09 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         while(true){

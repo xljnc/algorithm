@@ -1,6 +1,6 @@
 package com.wt.algorithm4.chapter1_1;
 
-public class Exercise6 {
+public class Exercise06 {
     public static void main(String[] args) {
         int f = 0;
         int g = 1;

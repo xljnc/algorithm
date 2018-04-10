@@ -1,6 +1,6 @@
 package com.wt.algorithm4.chapter1_1;
 
-public class Exercise7A {
+public class Exercise07A {
     public static void main(String[] args) {
         double t = 9.0;
         while (Math.abs(t - 9.0 / t) > .001) {

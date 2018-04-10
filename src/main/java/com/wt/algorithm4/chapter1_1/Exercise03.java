@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @Author WuTian
  * @Date 2018-04-10 16:52
  */
-public class Exercise3 {
+public class Exercise03 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         while(true){
