@@ -2,6 +2,10 @@ package com.wt.algorithm4.chapter1_1;
 
 import java.util.Scanner;
 
+/**
+ * @Author WuTian
+ * @Date 2018-04-10 19:09
+ */
 public class Exercise09 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
