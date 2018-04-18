@@ -6,7 +6,7 @@ package com.wt.algorithm4.chapter1_1;
  * @Date 2018/4/10 16:11
  */
 public class Exercise17 {
-    /* * 
+    /* *
      * @Author  WuTian
      * @Date 2018/4/10 16:14
      * @Param [n]
@@ -21,6 +21,7 @@ public class Exercise17 {
         }
         return s;
     }
+
 
     public static void main(String[] args) {
         System.out.println(exR2(4));
