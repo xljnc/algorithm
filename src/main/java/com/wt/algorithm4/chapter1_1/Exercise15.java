@@ -36,6 +36,7 @@ public class Exercise15 {
         }
     }
 
+
     public static int[] calcTimes(int[] a, int m) {
         int[] result = new int[m];
         for (int i = 0; i < m; i++) {
