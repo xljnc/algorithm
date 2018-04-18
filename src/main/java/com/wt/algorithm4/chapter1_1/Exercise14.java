@@ -2,13 +2,17 @@ package com.wt.algorithm4.chapter1_1;
 
 import java.util.Scanner;
 
+/**
+ * @Author WuTian
+ * @Date 2018-04-10 19:09
+ */
 public class Exercise14 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         while (true) {
             System.out.println("Please input a number.");
             double d = in.nextDouble();
-            if (d <=0) {
+            if (d <= 0) {
                 System.out.println("Invalid input.Try again.");
                 continue;
             }
@@ -17,9 +21,9 @@ public class Exercise14 {
                 continue;
             }
             int sum = 0;
-            int i = (int)d;
-            while((i>>1)>0){
-                i>>=1;
+            int i = (int) d;
+            while ((i >> 1) > 0) {
+                i >>= 1;
                 sum++;
             }
             System.out.println(sum);
