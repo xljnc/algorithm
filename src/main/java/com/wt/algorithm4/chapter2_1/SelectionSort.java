@@ -11,18 +11,10 @@ public class SelectionSort {
         selectionSort();
     }
 
-    public static void init() {
-        Random rad = new Random();
-        for (int i = 0; i < candidates.length; i++) {
-            candidates[i] = rad.nextInt(100);
-        }
-        System.out.println(Arrays.toString(candidates));
-    }
-
-    public static void selectionSort() {
-        for (int i = 0; i < (candidates.length - 1); i++) {
+    private static void selectionSort() {
+        for (int i = 0; i < candidates.length - 1; i++) {
             int min = i;
-            for (int j = (i + 1); j < candidates.length; j++) {
+            for (int j = i + 1; j < candidates.length; j++) {
                 if (candidates[j] < candidates[min]) {
                     min = j;
                 }
@@ -34,7 +26,15 @@ public class SelectionSort {
         System.out.println(Arrays.toString(candidates));
     }
 
-    public static void swap(int a, int b) {
+    private static void init() {
+        Random rad = new Random();
+        for (int i = 0; i < candidates.length; i++) {
+            candidates[i] = rad.nextInt(100);
+        }
+        System.out.println(Arrays.toString(candidates));
+    }
+
+    private static void swap(int a, int b) {
         int temp = candidates[a];
         candidates[a] = candidates[b];
         candidates[b] = temp;
