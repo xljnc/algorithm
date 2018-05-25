@@ -9,15 +9,15 @@ import java.util.*;
  * @description
  */
 public class QuickSort {
-    private static int[] candidates = new int[16];
+    private static int[] initCandidates = new int[16];
 
     public static void main(String[] args) {
         init();
-        quickSort(0, candidates.length - 1);
-        System.out.println(Arrays.toString(candidates));
+        quickSort(initCandidates, 0, initCandidates.length - 1);
+        System.out.println(Arrays.toString(initCandidates));
     }
 
-    private static void quickSort(int left, int right) {
+    public static void quickSort(int[] candidates, int left, int right) {
         if (left >= right) {
             return;
         }
@@ -30,25 +30,25 @@ public class QuickSort {
                 i++;
             }
             if (i < j) {
-                swap(i, j);
+                swap(candidates, i, j);
             }
         }
-        swap(left, i);
-        quickSort(left, i - 1);
-        quickSort(j + 1, right);
+        swap(candidates, left, i);
+        quickSort(candidates, left, i - 1);
+        quickSort(candidates, j + 1, right);
+    }
+    
+    private static void swap(int[] candidates, int a, int b) {
+        int temp = candidates[a];
+        candidates[a] = candidates[b];
+        candidates[b] = temp;
     }
 
     private static void init() {
         Random rad = new Random();
-        for (int i = 0; i < candidates.length; i++) {
-            candidates[i] = rad.nextInt(100);
+        for (int i = 0; i < initCandidates.length; i++) {
+            initCandidates[i] = rad.nextInt(100);
         }
-        System.out.println(Arrays.toString(candidates));
-    }
-
-    private static void swap(int a, int b) {
-        int temp = candidates[a];
-        candidates[a] = candidates[b];
-        candidates[b] = temp;
+        System.out.println(Arrays.toString(initCandidates));
     }
 }

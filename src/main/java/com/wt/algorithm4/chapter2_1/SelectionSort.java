@@ -4,14 +4,15 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class SelectionSort {
-    private static int[] candidates = new int[20];
+    private static int[] initCandidates = new int[20];
 
     public static void main(String[] args) {
         init();
-        selectionSort();
+        selectionSort(initCandidates);
+        System.out.println(Arrays.toString(initCandidates));
     }
 
-    private static void selectionSort() {
+    public static void selectionSort(int[] candidates) {
         for (int i = 0; i < candidates.length - 1; i++) {
             int min = i;
             for (int j = i + 1; j < candidates.length; j++) {
@@ -20,23 +21,22 @@ public class SelectionSort {
                 }
             }
             if (min != i) {
-                swap(i, min);
+                swap(candidates, i, min);
             }
         }
-        System.out.println(Arrays.toString(candidates));
+    }
+
+    private static void swap(int[] candidates, int a, int b) {
+        int temp = candidates[a];
+        candidates[a] = candidates[b];
+        candidates[b] = temp;
     }
 
     private static void init() {
         Random rad = new Random();
-        for (int i = 0; i < candidates.length; i++) {
-            candidates[i] = rad.nextInt(100);
+        for (int i = 0; i < initCandidates.length; i++) {
+            initCandidates[i] = rad.nextInt(100);
         }
-        System.out.println(Arrays.toString(candidates));
-    }
-
-    private static void swap(int a, int b) {
-        int temp = candidates[a];
-        candidates[a] = candidates[b];
-        candidates[b] = temp;
+        System.out.println(Arrays.toString(initCandidates));
     }
 }
