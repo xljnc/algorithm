@@ -1,11 +1,10 @@
-package com.wt.AhaAlgorithm.chapter3_1;
+package com.wt.ahaalgorithm.chapter3_1;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
 
 /**
  * @author WuTian
  * @date 2018-05-25 11:49
- * @description
+ * @description ABC + DEF = GHI
  */
 public class APlusBEqualsC {
     private static int[] result = new int[9];
