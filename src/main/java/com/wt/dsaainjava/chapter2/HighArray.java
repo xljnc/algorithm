@@ -48,6 +48,21 @@ public class HighArray {
 
     /*
      * @author  WuTian
+     * @date 2018/6/1 13:54
+     * @param
+     * @return void
+     * @throws
+     * @description 确保数组空间
+     */
+    private void ensureCapacity() {
+        if (size == capacity) {
+            capacity = (capacity + (capacity >> 1));
+            item = Arrays.copyOf(item, capacity);
+        }
+    }
+
+    /*
+     * @author  WuTian
      * @date 2018/6/1 17:27
      * @param
      * @return int
@@ -96,6 +111,23 @@ public class HighArray {
         compact(index);
         size--;
         return index;
+    }
+
+    /*
+     * @author  WuTian
+     * @date 2018/6/1 14:58
+     * @param index
+     * @return void
+     * @throws
+     * @description 压缩数组，防止出现空洞
+     */
+    private void compact(int index) {
+        for (int i = index; i < (size - 1); i++) {
+            item[i] = item[i + 1];
+        }
+        if (index != (size - 1)) {
+            item[size - 1] = 0;
+        }
     }
 
 
@@ -179,6 +211,7 @@ public class HighArray {
         return maxIndex;
     }
 
+
     /*
      * @author  WuTian
      * @date 2018/6/1 14:41
@@ -192,37 +225,6 @@ public class HighArray {
         return Arrays.toString(item);
     }
 
-    /*
-     * @author  WuTian
-     * @date 2018/6/1 13:54
-     * @param
-     * @return void
-     * @throws
-     * @description 确保数组空间
-     */
-    private void ensureCapacity() {
-        if (size == capacity) {
-            capacity = (capacity + (capacity >> 1));
-            item = Arrays.copyOf(item, capacity);
-        }
-    }
-
-    /*
-     * @author  WuTian
-     * @date 2018/6/1 14:58
-     * @param index
-     * @return void
-     * @throws
-     * @description 压缩数组，防止出现空洞
-     */
-    private void compact(int index) {
-        for (int i = index; i < (size - 1); i++) {
-            item[i] = item[i + 1];
-        }
-        if (index != (size - 1)) {
-            item[size - 1] = 0;
-        }
-    }
 
     public static void main(String[] args) {
         //[3, 5, 70, 71, 74, 43, 12, 46, 15, 51, 20, 56, 57, 25, 60, 93, 30, 94, 95]
@@ -278,7 +280,7 @@ public class HighArray {
         System.out.println("Size:" + ha.size());
         System.out.println("Max Value:" + ha.max());
         System.out.println("Delete max value.");
-        System.out.println("Max index at:"+ha.removeMax());
+        System.out.println("Max index at:" + ha.removeMax());
         System.out.println(ha.toString());
         System.out.println("Size:" + ha.size());
         System.out.println("Max Value:" + ha.max());
