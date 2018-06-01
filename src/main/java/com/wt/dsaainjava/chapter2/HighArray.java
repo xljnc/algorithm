@@ -46,6 +46,14 @@ public class HighArray {
         size++;
     }
 
+    /*
+     * @author  WuTian
+     * @date 2018/6/1 17:27
+     * @param
+     * @return int
+     * @throws
+     * @description 返回当前数组里元素的数量
+     */
     public int size() {
         return this.size;
     }
