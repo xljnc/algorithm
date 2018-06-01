@@ -142,13 +142,41 @@ public class HighArray {
      * @description 返回最大值
      */
     public int max() {
-        int maxValue = 0;
-        for (int i = 0; i < size; i++) {
-            if (item[i] > maxValue) {
-                maxValue = item[i];
+        int maxIndex = findMaxIndex();
+        return item[maxIndex];
+    }
+
+    /*
+     * @author  WuTian
+     * @date 2018/6/1 17:41
+     * @param
+     * @return int
+     * @throws
+     * @description 删除最大值
+     */
+    public int removeMax() {
+        int maxIndex = findMaxIndex();
+        deleteByIndex(maxIndex);
+        return maxIndex;
+
+    }
+
+    /*
+     * @author  WuTian
+     * @date 2018/6/1 17:38
+     * @param
+     * @return int
+     * @throws
+     * @description 获得最大值的下标
+     */
+    private int findMaxIndex() {
+        int maxIndex = 0;
+        for (int i = 1; i < size; i++) {
+            if (item[i] > item[maxIndex]) {
+                maxIndex = i;
             }
         }
-        return maxValue;
+        return maxIndex;
     }
 
     /*
@@ -246,6 +274,11 @@ public class HighArray {
         ha.insert(30);
         ha.insert(94);
         ha.insert(95);
+        System.out.println(ha.toString());
+        System.out.println("Size:" + ha.size());
+        System.out.println("Max Value:" + ha.max());
+        System.out.println("Delete max value.");
+        System.out.println("Max index at:"+ha.removeMax());
         System.out.println(ha.toString());
         System.out.println("Size:" + ha.size());
         System.out.println("Max Value:" + ha.max());
