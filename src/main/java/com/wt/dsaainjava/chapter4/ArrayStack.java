@@ -7,6 +7,13 @@ package com.wt.dsaainjava.chapter4;
  */
 public class ArrayStack<E> implements Stack<E> {
 
+    //数据数组
+    private E[] data;
+    //当前指针位置
+    private int position;
+    //数据数组大小
+    private int size;
+
     /*
      * @author  WuTian
      * @date 2018/6/6 17:36
@@ -19,6 +26,15 @@ public class ArrayStack<E> implements Stack<E> {
     public void push(E e) {
 
     }
+
+    private boolean isEmpty() {
+        return false;
+    }
+
+    private boolean isFull() {
+        return false;
+    }
+
 
     /*
      * @author  WuTian
@@ -45,4 +61,5 @@ public class ArrayStack<E> implements Stack<E> {
     public E peek() {
         return null;
     }
+
 }
