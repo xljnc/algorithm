@@ -1,24 +1,14 @@
 package com.wt.dsaainjava.chapter4;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * @author WuTian
- * @date 2018-06-07 15:26
- * @description Queue implements by array , do not support slot extend
+ * @date 2018-06-07 17:41
+ * @description Priority Queue implements by array , do not support slot extend
  */
-public class ArrayQueue<E> implements Queue<E> {
-    private static final Logger log = LoggerFactory.getLogger(ArrayQueue.class);
+public class PriorityArrayQueue<E> implements Queue<E> {
 
     //data array to store the elements
     private Object[] data;
-
-    //a pointer indicates the header position of the queue
-    private int head = 0;
-
-    //a pointer indicates the tail position of the queue
-    private int tail = -1;
 
     //current size of the queue
     private int currSize = 0;
@@ -29,28 +19,29 @@ public class ArrayQueue<E> implements Queue<E> {
     //capacity of data array
     private int capacity;
 
-    /**
-     * @param
-     * @return
-     * @throws
-     * @author WuTian
-     * @date 2018/6/7 15:36
-     * @description initialize the data array using the default capacity
-     */
-    public ArrayQueue() {
-        capacity = defaultCapacity;
-        data = new Object[capacity];
-    }
 
     /**
      * @param
      * @return
      * @throws
      * @author WuTian
-     * @date 2018/6/7 15:36
+     * @date 2018/6/7 19:29
+     * @description initialize the data array using the default capacity
+     */
+    public PriorityArrayQueue() {
+        capacity = defaultCapacity;
+        data = new Object[capacity];
+    }
+
+    /**
+     * @param capacity
+     * @return
+     * @throws
+     * @author WuTian
+     * @date 2018/6/7 19:32
      * @description initialize the data array using the capacity given
      */
-    public ArrayQueue(int capacity) {
+    public PriorityArrayQueue(int capacity) {
         this.capacity = capacity;
         data = new Object[capacity];
     }
@@ -65,16 +56,7 @@ public class ArrayQueue<E> implements Queue<E> {
      */
     @Override
     public boolean offer(E e) {
-        if (isFull()) {
-            log.error("ArrayQueue is full.Can not offer.");
-            return false;
-        }
-        if (tail == (capacity - 1)) {
-            tail = -1;
-        }
-        data[++tail] = e;
-        currSize++;
-        return true;
+        return false;
     }
 
     /**
@@ -86,16 +68,7 @@ public class ArrayQueue<E> implements Queue<E> {
      */
     @Override
     public E poll() {
-        if (isEmpty()) {
-            log.error("ArrayQueue is empty.Can not poll.");
-            return null;
-        }
-        E item = (E) data[head++];
-        if (head == capacity) {
-            head = 0;
-        }
-        currSize--;
-        return item;
+        return null;
     }
 
     /**
@@ -107,11 +80,7 @@ public class ArrayQueue<E> implements Queue<E> {
      */
     @Override
     public E peek() {
-        if (isEmpty()) {
-            log.error("ArrayQueue is empty.");
-            return null;
-        }
-        return (E) data[head];
+        return null;
     }
 
     /**
@@ -123,7 +92,7 @@ public class ArrayQueue<E> implements Queue<E> {
      */
     @Override
     public boolean isFull() {
-        return currSize == capacity;
+        return false;
     }
 
     /***
@@ -135,17 +104,6 @@ public class ArrayQueue<E> implements Queue<E> {
      */
     @Override
     public boolean isEmpty() {
-        return currSize == 0;
-    }
-
-    public static void main(String[] args) {
-        Queue<Integer> quque = new ArrayQueue<>();
-        quque.offer(1);
-        quque.offer(2);
-        quque.offer(3);
-        quque.offer(4);
-        while (!quque.isEmpty()) {
-            System.out.println(quque.poll());
-        }
+        return false;
     }
 }
