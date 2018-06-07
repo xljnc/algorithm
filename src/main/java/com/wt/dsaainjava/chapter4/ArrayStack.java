@@ -38,7 +38,7 @@ public class ArrayStack<E> implements Stack<E> {
      * @return
      * @throws
      * @author WuTian
-     * @date 2018/6/7 10:57
+     * @date 2018/6/7 12:05
      * @description initialize the data array using the capacity given
      */
     public ArrayStack(int capacity) {
