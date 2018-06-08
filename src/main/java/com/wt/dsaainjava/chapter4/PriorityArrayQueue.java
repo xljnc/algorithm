@@ -1,11 +1,15 @@
 package com.wt.dsaainjava.chapter4;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author WuTian
  * @date 2018-06-07 17:41
  * @description Priority Queue implements by array , do not support slot extend
  */
-public class PriorityArrayQueue<E> implements Queue<E> {
+public class PriorityArrayQueue<E extends Comparable<E>> implements Queue<E> {
+    private static final Logger log = LoggerFactory.getLogger(PriorityArrayQueue.class);
 
     //data array to store the elements
     private Object[] data;
@@ -56,7 +60,25 @@ public class PriorityArrayQueue<E> implements Queue<E> {
      */
     @Override
     public boolean offer(E e) {
-        return false;
+        if (isFull()) {
+            log.error("PriorityArrayQueue is full.Can not offer.");
+            return false;
+        }
+        if (isEmpty()) {
+            data[currSize++] = e;
+            return true;
+        }
+        int i;
+        for (i = (currSize - 1); i >= 0; i--) {
+            if (e.compareTo((E) data[i]) < 0) {
+                data[i + 1] = data[i];
+            } else {
+                break;
+            }
+        }
+        data[i + 1] = e;
+        currSize++;
+        return true;
     }
 
     /**
@@ -68,7 +90,11 @@ public class PriorityArrayQueue<E> implements Queue<E> {
      */
     @Override
     public E poll() {
-        return null;
+        if (isEmpty()) {
+            log.error("PriorityArrayQueue is empty.Can not poll.");
+            return null;
+        }
+        return (E) data[--currSize];
     }
 
     /**
@@ -80,7 +106,11 @@ public class PriorityArrayQueue<E> implements Queue<E> {
      */
     @Override
     public E peek() {
-        return null;
+        if (isEmpty()) {
+            log.error("PriorityArrayQueue is empty.");
+            return null;
+        }
+        return (E) data[currSize - 1];
     }
 
     /**
@@ -92,7 +122,7 @@ public class PriorityArrayQueue<E> implements Queue<E> {
      */
     @Override
     public boolean isFull() {
-        return false;
+        return currSize == capacity;
     }
 
     /***
@@ -104,6 +134,17 @@ public class PriorityArrayQueue<E> implements Queue<E> {
      */
     @Override
     public boolean isEmpty() {
-        return false;
+        return currSize == 0;
+    }
+
+    public static void main(String[] args) {
+        Queue<Integer> quque = new PriorityArrayQueue<>();
+        quque.offer(2);
+        quque.offer(1);
+        quque.offer(3);
+        quque.offer(4);
+        while (!quque.isEmpty()) {
+            System.out.println(quque.poll());
+        }
     }
 }
