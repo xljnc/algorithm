@@ -37,4 +37,24 @@ public interface List<E> {
     boolean add(E e);
 
 
+    /**
+     * @param
+     * @throws
+     * @author Xljnc
+     * @date 2018/6/10 16:44
+     * @returns void
+     * @description remove all elements in this list (optional operation). The list will be empty after this call returns.
+     */
+    void clear();
+
+    /**
+     * @param index index of the element to be removed.
+     * @throws
+     * @author Xljnc
+     * @date 2018/6/10 17:16
+     * @returns the element previously at the specified position.
+     * @description remove the element at the specified index of this list(optional operation). Return the element previously at the specified position.
+     */
+    E remove(int index);
+
 }
