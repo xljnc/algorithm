@@ -5,7 +5,7 @@ package com.wt.dsaainjava.chapter5;
  * @date 2018/6/8 14:04
  * @description Top level interface of
  */
-public interface List<E> {
+public interface List<E> extends Iterable<E>{
     /**
      * @param
      * @return true if this list contains no elements
@@ -56,5 +56,7 @@ public interface List<E> {
      * @description remove the element at the specified index of this list(optional operation). Return the element previously at the specified position.
      */
     E remove(int index);
+
+
 
 }
