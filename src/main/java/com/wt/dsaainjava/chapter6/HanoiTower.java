@@ -5,12 +5,12 @@ import sun.java2d.pipe.SpanIterator;
 /**
  * @author WuTian
  * @date 2018-06-15 16:03
- * @description 汉诺塔实现
+ * @description 汉诺塔实现 注意：递归栈大小设置的太小会有StackOverFlowError
  */
 public class HanoiTower {
 
     public static void main(String[] args) {
-        move(4, 'A', 'B', 'C');
+        move(5, 'A', 'B', 'C');
     }
 
     private static void move(int topN, char from, char mid, char to) {
