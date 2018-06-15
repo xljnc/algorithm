@@ -23,6 +23,36 @@ public class Anagram {
     }
 
     private static void doAnagram(int currSize) {
-        
+        if (currSize == 1)
+            return;
+        for (int i = 0; i < currSize; i++) {
+            doAnagram(currSize - 1);
+            if (currSize == 2)
+                displayWord();
+            rotate(currSize);
+        }
     }
+
+    private static void rotate(int currSize) {
+        int position = (size - currSize);
+        char temp = charArr[position];
+        int j;
+        for (j = (position + 1); j < size; j++) {
+            charArr[j - 1] = charArr[j];
+        }
+        charArr[j - 1] = temp;
+    }
+
+    private static void displayWord() {
+        System.out.print(++count + " ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(charArr[i]);
+        }
+        if(count % 6 != 0)
+            System.out.print(" ");
+        if (count % 6 == 0)
+            System.out.println("");
+    }
+
+
 }
