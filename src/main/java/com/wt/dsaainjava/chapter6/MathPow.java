@@ -3,7 +3,7 @@ package com.wt.dsaainjava.chapter6;
 /**
  * @author WuTian
  * @date 2018-06-27 16:28
- * @description
+ * @description 乘方实现
  */
 public class MathPow {
     public static void main(String[] args) {

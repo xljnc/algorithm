@@ -1,7 +1,5 @@
 package com.wt.dsaainjava.chapter6;
 
-import sun.java2d.pipe.SpanIterator;
-
 /**
  * @author WuTian
  * @date 2018-06-15 16:03

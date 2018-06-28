@@ -3,7 +3,7 @@ package com.wt.dsaainjava.chapter6;
 /**
  * @author WuTian
  * @date 2018-06-27 15:18
- * @description
+ * @description 归并排序，使用递归实现
  */
 public class MergeSort {
 

@@ -3,7 +3,7 @@ package com.wt.dsaainjava.chapter7;
 /**
  * @author WuTian
  * @date 2018-06-28 11:14
- * @description 原书上的代码是有问题的
+ * @description 希尔排序，原书上的代码是有问题的
  */
 public class ShellSort {
     private static int[] src;
