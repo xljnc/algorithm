@@ -13,6 +13,14 @@ public class Tree<T extends Comparable<T>> {
         tree.insert(50);
         tree.insert(25);
         tree.insert(75);
+        tree.insert(12);
+        tree.insert(37);
+        tree.insert(43);
+        tree.insert(30);
+        tree.insert(33);
+        tree.insert(87);
+        tree.insert(93);
+        tree.insert(97);
         tree.display();
     }
 
@@ -21,7 +29,7 @@ public class Tree<T extends Comparable<T>> {
      * @return void
      * @throws NullPointerException if the item to be insert is null.
      */
-    public void insert(T item) throws NullPointerException {
+    public void insert(T item){
         if (item == null)
             throw new NullPointerException("item must not be null.");
         if (root == null) {
@@ -34,7 +42,7 @@ public class Tree<T extends Comparable<T>> {
             if (current.data.equals(item))
                 return;
             parent = current;
-            if (current.data.compareTo(item) < 0) {
+            if (item.compareTo(current.data) < 0) {
                 current = current.leftChild;
                 if (current == null) {
                     parent.leftChild = new Node<>(item);
@@ -52,13 +60,15 @@ public class Tree<T extends Comparable<T>> {
 
 
     public boolean isExisted(T item) {
+        if (item == null)
+            throw new NullPointerException("item must not be null.");
         if (root == null)
             return false;
         Node<T> current = root;
         while (current != null) {
             if (current.data.equals(item))
                 return true;
-            if (current.data.compareTo(item) < 0) {
+            if (item.compareTo(current.data) < 0) {
                 current = current.leftChild;
             } else {
                 current = current.rightChild;
@@ -74,7 +84,7 @@ public class Tree<T extends Comparable<T>> {
         while (current != null) {
             if (current.data.equals(item))
                 break;
-            if (current.data.compareTo(item) < 0) {
+            if (item.compareTo(current.data) < 0) {
                 delParent = current;
                 current = current.leftChild;
                 isLeftChild = true;
@@ -184,16 +194,16 @@ public class Tree<T extends Comparable<T>> {
 
     private void inOrder(Node<T> node) {
         if (node != null) {
-            preOrder(node.leftChild);
+            inOrder(node.leftChild);
             System.out.print(node.data + " ");
-            preOrder(node.rightChild);
+            inOrder(node.rightChild);
         }
     }
 
     private void postOrder(Node<T> node) {
         if (node != null) {
-            preOrder(node.leftChild);
-            preOrder(node.rightChild);
+            postOrder(node.leftChild);
+            postOrder(node.rightChild);
             System.out.print(node.data + " ");
         }
     }
