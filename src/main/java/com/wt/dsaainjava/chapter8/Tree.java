@@ -22,6 +22,12 @@ public class Tree<T extends Comparable<T>> {
         tree.insert(93);
         tree.insert(97);
         tree.display();
+        System.out.println();
+        System.out.println("Tree contains 43 ? " + tree.contain(43));
+        System.out.println("Tree contains 11 ? " + tree.contain(11));
+        tree.delete(25);
+        System.out.println("Tree contains 25 ? " + tree.contain(25));
+        tree.display();
     }
 
     /**
@@ -29,7 +35,7 @@ public class Tree<T extends Comparable<T>> {
      * @return void
      * @throws NullPointerException if the item to be insert is null.
      */
-    public void insert(T item){
+    public void insert(T item) {
         if (item == null)
             throw new NullPointerException("item must not be null.");
         if (root == null) {
@@ -59,7 +65,7 @@ public class Tree<T extends Comparable<T>> {
     }
 
 
-    public boolean isExisted(T item) {
+    public boolean contain(T item) {
         if (item == null)
             throw new NullPointerException("item must not be null.");
         if (root == null)
