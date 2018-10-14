@@ -13,10 +13,13 @@ public class ArrayStack<E> implements Stack<E> {
 
     //data array to store the elements
     private Object[] data;
+
     //a pointer indicates the current position of element
     private int position = -1;
+
     //default capacity of data array
     private final int defaultCapacity = 10;
+
     //capacity of data array
     private int capacity;
 
@@ -119,6 +122,7 @@ public class ArrayStack<E> implements Stack<E> {
     @Override
     public E peek() {
         if (isEmpty()) {
+            log.error("Stack is empty.");
             return null;
         }
         return (E) data[position];
