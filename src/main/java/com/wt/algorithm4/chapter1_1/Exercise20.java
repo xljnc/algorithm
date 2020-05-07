@@ -1,6 +1,5 @@
 package com.wt.algorithm4.chapter1_1;
 
-import com.sun.media.sound.SoftTuning;
 
 import java.util.Scanner;
 
